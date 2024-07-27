@@ -7,9 +7,9 @@ import {
   useParams,
 } from 'react-router-dom';
 
-import { Example1 } from './Examples/Example1.tsx';
-
 import './App.css';
+import { Text } from './Text/Text.tsx';
+import { Example1 } from './Examples/Example1.tsx';
 
 const T = () => {
   return <div>{useParams().test}</div>;
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'example1',
-    element: <Example1 />,
+    element: <Text paragraphs={Example1} />,
   },
   {
     path: ':test',

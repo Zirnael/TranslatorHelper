@@ -14,9 +14,8 @@ export const Word = ({ word }: WordProps) => {
     return;
   }
 
-  const trimmedText = word
-    .replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, '')
-    .toLowerCase();
+  let trimmedText = word.replace(/[.,/#!$%^&*;:{}=\-_`~”“"()]/g, '');
+  trimmedText = trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1);
 
   const handleClick = () => {
     setIsOpen(!isOpen);

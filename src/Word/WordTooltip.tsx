@@ -1,6 +1,7 @@
-import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import { Favorite, FavoriteBorder, MoreVert } from '@mui/icons-material';
 import { useFavoriteWords } from '../hooks/useFavoriteWords.ts';
 import { useMemo } from 'react';
+import { Button, Divider } from '@mui/material';
 
 type WordTooltipProps = {
   word: string;
@@ -20,25 +21,36 @@ export const WordTooltip = ({ word }: WordTooltipProps) => {
 
   return (
     <div
-      style={{
-        minWidth: '10rem',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}
       onClick={(event) => {
         event.stopPropagation();
-        console.log('click inside');
       }}
       onTouchStartCapture={(event) => {
         event.stopPropagation();
-        console.log('touch inside');
       }}
     >
-      {word}
-      <div onClick={toggleFavorite}>
-        {isFavorite ? <Favorite /> : <FavoriteBorder />}
+      <div
+        style={{
+          minWidth: '10rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        {word}
+        <div onClick={toggleFavorite}>
+          {isFavorite ? <Favorite /> : <FavoriteBorder />}
+        </div>
       </div>
+      <Divider color={'white'} />
+      <div className={'Flex Space-between'}>
+        <ul style={{ paddingLeft: '1rem' }}>
+          <li>Translation 1</li>
+          <li>Translation 3</li>
+          <li>Translation 2</li>
+        </ul>
+      </div>
+      <Divider color={'white'} />
+      <Button>Translate sentence</Button>
     </div>
   );
 };
